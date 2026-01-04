@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://assets/fundo.png" type="Texture" id=1]
 [ext_resource path="res://scripts/felpudo.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/felpudo/felpudoVoa4.png" type="Texture" id=6]
 [ext_resource path="res://assets/felpudo/felpudoVoa5.png" type="Texture" id=7]
 [ext_resource path="res://assets/felpudo/felpudoVoa6.png" type="Texture" id=8]
+[ext_resource path="res://scenes/Cano.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 
@@ -90,7 +91,6 @@ centered = false
 
 [node name="Felpudo" type="RigidBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 152.888, 201.167 )
 z/z = 1
 input/pickable = false
@@ -166,5 +166,11 @@ transform/scale = Vector2( 1, 8.87394 )
 shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 1
+
+[node name="Cano" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1205.87, 752.648 )
+z/z = 2
+vel = -400
 
 

@@ -10,19 +10,20 @@ extents = Vector2( 16.968, 100.328 )
 
 [node name="Cano" type="Node2D"]
 
+z/z = 1
 script/script = ExtResource( 1 )
 vel = -150
 
 [node name="Cima" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, -1225 )
+transform/pos = Vector2( 0, -1414.21 )
 transform/scale = Vector2( 3, 8 )
 texture = ExtResource( 2 )
 flip_v = true
 
 [node name="Baixo" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, 1225 )
+transform/pos = Vector2( 0, 1380.58 )
 transform/scale = Vector2( 3, 8 )
 texture = ExtResource( 2 )
 
@@ -30,10 +31,10 @@ texture = ExtResource( 2 )
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 5.40866, 0, 0, 10.0981, -1.37594, 1228.81 )
+shapes/0/transform = Matrix32( 5.40866, 0, 0, 10.0981, -1.37594, 1384.39 )
 shapes/0/trigger = false
 shapes/1/shape = SubResource( 1 )
-shapes/1/transform = Matrix32( 5.40866, 0, 0, 10.0981, -1.37594, -1227.35 )
+shapes/1/transform = Matrix32( 5.40866, 0, 0, 10.0981, -1.37594, -1416.56 )
 shapes/1/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -42,7 +43,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
-transform/pos = Vector2( -1.37594, 1228.81 )
+transform/pos = Vector2( -1.37594, 1384.39 )
 transform/scale = Vector2( 5.40866, 10.0981 )
 shape = SubResource( 1 )
 trigger = false
@@ -50,7 +51,7 @@ _update_shape_index = 0
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="Area2D"]
 
-transform/pos = Vector2( -1.37594, -1227.35 )
+transform/pos = Vector2( -1.37594, -1416.56 )
 transform/scale = Vector2( 5.40866, 10.0981 )
 shape = SubResource( 1 )
 trigger = false

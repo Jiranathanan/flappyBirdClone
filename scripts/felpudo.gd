@@ -10,6 +10,6 @@ func _input(event):
 		on_touch()
 		
 func on_touch():
-	apply_impulse(Vector2(0,0), Vector2(0, -1800))
+	apply_impulse(Vector2(0,0), Vector2(0, -1000))
 	
 	

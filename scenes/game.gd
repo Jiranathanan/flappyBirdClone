@@ -2,6 +2,7 @@ extends Node2D
 
 onready var felpudo = get_node("Felpudo")
 onready var timereplay = get_node("TimeToReplay")
+onready var label = get_node("Node2D/Control/Label")
 
 var pontos = 0 # Points
 var estado = 1 # State
@@ -17,6 +18,10 @@ func kill():
 	get_node("BackAnim").stop()
 	estado = PERDENDO # State = Losing
 	timereplay.start()
+	
+func pontuar(): # score
+	pontos += 1 # score += 1
+	label.set_text(str(pontos))
 	
 	
 

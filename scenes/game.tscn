@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://scenes/game.gd" type="Script" id=1]
 [ext_resource path="res://assets/fundo.png" type="Texture" id=2]
@@ -9,9 +9,12 @@
 [ext_resource path="res://assets/felpudo/felpudoVoa4.png" type="Texture" id=7]
 [ext_resource path="res://assets/felpudo/felpudoVoa5.png" type="Texture" id=8]
 [ext_resource path="res://assets/felpudo/felpudoVoa6.png" type="Texture" id=9]
-[ext_resource path="res://scenes/Cano.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scripts/gerador.gd" type="Script" id=11]
-[ext_resource path="res://assets/font160.fnt" type="BitmapFont" id=12]
+[ext_resource path="res://sound/somVoa.ogg" type="AudioStream" id=10]
+[ext_resource path="res://scenes/Cano.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/gerador.gd" type="Script" id=12]
+[ext_resource path="res://assets/font160.fnt" type="BitmapFont" id=13]
+[ext_resource path="res://sound/somScore.ogg" type="AudioStream" id=14]
+[ext_resource path="res://sound/somHit.ogg" type="AudioStream" id=15]
 
 [sub_resource type="Animation" id=1]
 
@@ -126,7 +129,7 @@ script/script = ExtResource( 3 )
 transform/scale = Vector2( 1.4, 1.4 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 3
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Felpudo"]
@@ -136,6 +139,17 @@ transform/scale = Vector2( 9.61539, 8.65385 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
+
+[node name="SomVoa" type="StreamPlayer" parent="Felpudo"]
+
+stream/stream = ExtResource( 10 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
 
 [node name="Limites" type="StaticBody2D" parent="."]
 
@@ -176,16 +190,17 @@ _update_shape_index = 1
 
 z/z = 2
 
-[node name="Cano" parent="Canos" instance=ExtResource( 10 )]
+[node name="Cano" parent="Canos" instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 1205.87, 752.648 )
 z/z = 2
+z/relative = false
 vel = -400
 
 [node name="Gerador" type="Position2D" parent="Canos"]
 
 transform/pos = Vector2( 1205.42, 760.961 )
-script/script = ExtResource( 11 )
+script/script = ExtResource( 12 )
 
 [node name="Timer" type="Timer" parent="Canos/Gerador"]
 
@@ -226,12 +241,34 @@ margin/left = 6.0
 margin/top = 35.0
 margin/right = 996.0
 margin/bottom = 208.0
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 13 )
 text = "0"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="SomScore" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 14 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="SomHit" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 15 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
 
 [connection signal="timeout" from="Canos/Gerador/Timer" to="Canos/Gerador" method="_on_Timer_timeout"]
 

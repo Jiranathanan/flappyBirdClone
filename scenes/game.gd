@@ -18,10 +18,12 @@ func kill():
 	get_node("BackAnim").stop()
 	estado = PERDENDO # State = Losing
 	timereplay.start()
+	get_node("SomHit").play()
 	
 func pontuar(): # score
 	pontos += 1 # score += 1
 	label.set_text(str(pontos))
+	get_node("SomScore").play()
 	
 	
 
